@@ -17,9 +17,10 @@ EnviarFormulario.py
   en formato Json
   
 RecibeFormulario.py
-- Módulo de validación y deduplicación de formularios.- En esta etapa se recibe la cola de mensaje en formato Json, se realiza la validación y
-  y deduplicación de formularios.
-  
+- Módulo de validación y deduplicación de formularios.- En esta etapa se recibe la cola de mensaje en formato Json, se realiza la validación y deduplicación de formularios luego de la consulta al repositorio por medio de la API REST.
+
+App.py
+- API REST se la realiza por medio de Flask 
   
 - Módulo de Almacenamiento Distribuido de Datos de Alta Disponibilidad.
 - Módulo de Reportes / Analítica
