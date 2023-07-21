@@ -37,6 +37,15 @@ def _existe_id(ID_CONS, formulario=None, formularios_duplicados=None):
         formulario = request.get_json()
         formulario["id"] = _find_next_id()
         formularios.append(formulario)
+
+        formulation_node1 = request.get_json()
+        formulation_node1["id"] = _find_next_id()
+        formularios.append(formulation_node1)
+
+        formulation_node2 = request.get_json()
+        formulation_node2["id"] = _find_next_id()
+        formularios.append(formulation_node2)
+
         return formulario, 201
 
 
