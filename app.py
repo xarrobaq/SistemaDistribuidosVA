@@ -30,9 +30,10 @@ def _find_next_id():
 
 def _existe_id(ID_CONS, formulario=None):
     if formulario["ID"] == ID_CONS:
-        return {"error": "Exite formulario duplicado"},201
+        return {"error": "Exite formulario duplicado"}, 415
     else:
         return formulario, 201
+
 
 @app.get("/formularios")
 def get_formularios():
