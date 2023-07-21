@@ -43,7 +43,7 @@ def _asignacion_lider(estado):
                 seguidor.append(seguidores[i])
     lider.recibir_mensaje(lider.cola.get_mensaje())
 
-    for seguidor inn seguidores:
+    for seguidor in seguidores:
         seguidor.recibir_mensaje(seguidores.cola.get_mensaje())
 
     return max(formulario["ID"] for formulario in formularios) + 1
