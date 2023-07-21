@@ -51,6 +51,15 @@ def add_formulario():
         formulario = request.get_json()
         formulario["id"] = _find_next_id()
         formularios.append(formulario)
+
+        formularionodo1 = request.get_json()
+        formularionodo1["id"] = _find_next_id()
+        formularios.append(formularionodo1)
+
+        formularionodo2 = request.get_json()
+        formularionodo2["id"] = _find_next_id()
+        formularios.append(formularionodo2)
+
         return formulario, 201
 
     return {"error": "Request must be JSON"}, 415
