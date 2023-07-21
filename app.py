@@ -27,12 +27,34 @@ formularios = [
 def _find_next_id():
     return max(formulario["ID"] for formulario in formularios) + 1
 
+def _asignacion_lider(estado):
+    seguidores = []
+
+    for i in range(3)
+        seguidores.append(Server(i,Seguidor(),[],[],Tabla()))
+    estadonodo = Seguidor()
+    lider = Server(4,lider(),[],seguidores, Tabla())
+
+    #Notificar a los seguidores
+    for seguidor in seguidores:
+        seguidor.nodos_adyacentes.append(lider)
+        for j in range(3):
+            if i != seguidor.id:
+                seguidor.append(seguidores[i])
+    lider.recibir_mensaje(lider.cola.get_mensaje())
+
+    for seguidor inn seguidores:
+        seguidor.recibir_mensaje(seguidores.cola.get_mensaje())
+
+    return max(formulario["ID"] for formulario in formularios) + 1
+
+
 
 def _existe_id(ID_CONS, formulario=None, formularios_duplicados=None):
     if formulario["ID"] == ID_CONS:
         formulario = request.get_json()
         formularios_duplicados.append(formulario)
-        return formulario, 201
+        return {"error": "Formulario se encuentra duplicado"}, 415
     else:
         formulario = request.get_json()
         formulario["id"] = _find_next_id()
@@ -60,6 +82,6 @@ def add_formulario():
         formularionodo2["id"] = _find_next_id()
         formularios.append(formularionodo2)
 
-        return formulario, 201
+        return {"error": "Registro ingresado con exito"}, 201
 
     return {"error": "Request must be JSON"}, 415
