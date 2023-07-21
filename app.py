@@ -47,11 +47,11 @@ def add_formulario():
         formularios.append(formulario)
 
         formulario_node1 = request.get_json()
-        formulario_node1["id"] = _find_next_id()
+        formulario_node1["id"] = formulario["id"]
         formulario_node1.append(formulario_node1)
 
         formulario_node2 = request.get_json()
-        formulario_node2["id"] = _find_next_id()
+        formulario_node2["id"] = formulario["id"]
         formulario_node2.append(formulario_node2)
 
         return formulario, 201
