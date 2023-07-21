@@ -28,26 +28,11 @@ def _find_next_id():
     return max(formulario["ID"] for formulario in formularios) + 1
 
 
-def _existe_id(ID_CONS, formulario=None, formularios_duplicados=None):
+def _existe_id(ID_CONS, formulario=None):
     if formulario["ID"] == ID_CONS:
-        formulario = request.get_json()
-        formularios_duplicados.append(formulario)
-        return formulario, 201
+        return {"error": "Exite formulario duplicado"},201
     else:
-        formulario = request.get_json()
-        formulario["id"] = _find_next_id()
-        formularios.append(formulario)
-
-        formulation_node1 = request.get_json()
-        formulation_node1["id"] = _find_next_id()
-        formularios.append(formulation_node1)
-
-        formulation_node2 = request.get_json()
-        formulation_node2["id"] = _find_next_id()
-        formularios.append(formulation_node2)
-
         return formulario, 201
-
 
 @app.get("/formularios")
 def get_formularios():
@@ -60,6 +45,15 @@ def add_formulario():
         formulario = request.get_json()
         formulario["id"] = _find_next_id()
         formularios.append(formulario)
+
+        formulario_node1 = request.get_json()
+        formulario_node1["id"] = _find_next_id()
+        formulario_node1.append(formulario_node1)
+
+        formulario_node2 = request.get_json()
+        formulario_node2["id"] = _find_next_id()
+        formulario_node2.append(formulario_node2)
+
         return formulario, 201
 
     return {"error": "Request must be JSON"}, 415
